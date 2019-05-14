@@ -18,10 +18,22 @@ public class HighScoreDatabase {
         }
     }
 
+    // puts the starting data into the database if the database is empty.
+    protected static void insertStartingData(){
+        try (Connection connection = DriverManager.getConnection(HighScoreDatabase.db_url);
+             Statement statement = connection.createStatement()) {
 
+            String addItem = "INSERT INTO high_scores (player_name, score) VALUES " + "(NULL,0)";
+            statement.execute(addItem);
+        } catch (SQLException sqlex) {
+            System.out.println("Error inserting data to database.\n" + sqlex);
+        }
+    }
+
+    // adds a new score into the database.
     protected static void addScore(String name, int score) {
         try (Connection connection = DriverManager.getConnection(HighScoreDatabase.db_url);
-             PreparedStatement psAdd = connection.prepareStatement("INSERT INTO high_scores ('player_name', 'score') VALUES (?,?)")) {
+             PreparedStatement psAdd = connection.prepareStatement("INSERT INTO high_scores (player_name, score) VALUES (?,?)")) {
             psAdd.setString(1, name);
             psAdd.setDouble(2, score);
             psAdd.executeUpdate();
@@ -30,18 +42,7 @@ public class HighScoreDatabase {
         }
     }
 
-    protected static void InsertStartingData(){
-        try (Connection connection = DriverManager.getConnection(HighScoreDatabase.db_url);
-             Statement statement = connection.createStatement()) {
-
-            String addItem = "INSERT INTO high_scores ('player_name', 'score') VALUES " + "('Null',0)";
-            statement.execute(addItem);
-        } catch (SQLException sqlex) {
-            System.out.println("Error inserting data to database.\n" + sqlex);
-        }
-
-    }
-
+    //checks to see if there is data in the database.
     protected static boolean checkForData(){
         try (Connection connection = DriverManager.getConnection(HighScoreDatabase.db_url);
              Statement statement = connection.createStatement()) {
@@ -64,6 +65,7 @@ public class HighScoreDatabase {
         }
     }
 
+    // gets the highest score from the database.
     protected static int getHighScore(){
         try (Connection connection = DriverManager.getConnection(HighScoreDatabase.db_url);
              Statement statement = connection.createStatement()) {
@@ -84,6 +86,7 @@ public class HighScoreDatabase {
         }
     }
 
+    // gets the player name with the highest score.
     protected static String getHighPlayer(){
         try (Connection connection = DriverManager.getConnection(HighScoreDatabase.db_url);
              Statement statement = connection.createStatement()) {

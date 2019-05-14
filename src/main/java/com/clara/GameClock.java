@@ -19,7 +19,6 @@ public class GameClock extends TimerTask {
 
 		int stage = SnakeGame.getGameStage();
 
-		
 		switch (stage) {
 			case SnakeGame.BEFORE_GAME: {
 				this.cancel();
@@ -41,20 +40,23 @@ public class GameClock extends TimerTask {
 					break;
 				}
 			}
+			case SnakeGame.CANCEL_TIMER: {
+				this.cancel();
+				break;
+			}
 			case SnakeGame.GAME_OVER: {
 				this.cancel();		// stop the Timer and records that there is no longer a lingering timer.
 				componentManager.lingeringTimer = false;
+				Kibble.firstRound = true;
 				break;	
 			}
 			case SnakeGame.GAME_WON: {
 				this.cancel();   // stop the Timer and records that there is no longer a lingering timer.
 				componentManager.lingeringTimer = false;
+				Kibble.firstRound = true;
 				break;
 			}
-
 		}
-				
 		gamePanel.repaint();		//In every circumstance, must update screen
-		
 	}
 }

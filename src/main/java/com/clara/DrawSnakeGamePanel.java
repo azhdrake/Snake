@@ -25,6 +25,8 @@ public class DrawSnakeGamePanel extends JPanel {
     private JTextField playerNameTextField = new JTextField("Enter Name Here");
     private JButton SubmitScoreButton = new JButton("Submit Score");
 
+    private boolean submittedScore = false;
+
 
     DrawSnakeGamePanel(GameComponentManager components) {
         this.snake = components.getSnake();
@@ -65,7 +67,7 @@ public class DrawSnakeGamePanel extends JPanel {
             }
             case SnakeGame.GAME_OVER: {
                 displayGameOver(g);
-                listenTime();
+                listenTime(g);
                 break;
             }
             case SnakeGame.GAME_WON: {
@@ -98,14 +100,20 @@ public class DrawSnakeGamePanel extends JPanel {
     }
 
     private void displayGameWon(Graphics g) {
-        // TODO Replace this with something really special!
         g.clearRect(100, 100, 350, 350);
-        g.drawString("YOU WON SNAKE!!!", 150, 150);
-
+        g.drawString("HOLY FLIPPING CRACKERJACKS!!!", 150, 150);
+        g.drawString("YOU WON SNAKE!!!", 150, 175);
+        g.drawString("I DIDN'T THINK IT COULD BE DONE!!!", 150, 200);
+        g.drawString("YOU SURE SHOWED ME!!!", 150, 225);
+        g.drawString("YOU BESTED ME AT MY OWN GAME!!!", 150, 250);
+        g.drawString("YOU HAVE USURPED ME!!!", 150, 275);
+        g.drawString("YOU'RE THE PROGRAMMER NOW!!!", 150, 300);
+        g.drawString("GOOD LUCK WITH THOSE BUGS!!!", 150, 325);
+        g.drawString("YOU'RE GONNA NEED IT!!!", 150, 350);
+        g.drawString("I'LL BE OVER HERE TAKING A NAP!!!", 150, 375);
     }
 
     private void displayGameOver(Graphics g) {
-
         g.clearRect(75, 75, 350, 350);
         g.drawString("GAME OVER", 150, 125);
 
@@ -119,18 +127,23 @@ public class DrawSnakeGamePanel extends JPanel {
         g.drawString("HIGH SCORE = " + highPlayer + ": " + textHighScore, 150, 200);
         g.drawString(newHighScore, 150, 225);
 
-        g.drawString("press a key to play again", 150, 250);
-        g.drawString("Press q to quit the game", 150, 275);
+        g.drawString("press enter to play again", 150, 250);
+        g.drawString("Press q or esc to quit the game", 150, 275);
+
+        if(submittedScore){
+            g.drawString("SCORE SUBMITTED", 150, 300);
+        }
 
         playerNameTextField.setBounds(115,325,200,25);
         add(playerNameTextField);
 
         SubmitScoreButton.setBounds(150,350,115,25);
         add(SubmitScoreButton);
-
     }
 
+    // resets the score submission objects and displays the game objects.
     private void displayGame(Graphics g) {
+        submittedScore = false;
         remove(SubmitScoreButton);
         remove(playerNameTextField);
         displayGameGrid(g);
@@ -141,30 +154,31 @@ public class DrawSnakeGamePanel extends JPanel {
         }
     }
 
+    // draws a graph so you don't get lost among the beautiful 90s roller rink carpet that this method is also responsable for producing.
     private void displayGameGrid(Graphics g) {
-
         int maxX = SnakeGame.xPixelMaxDimension;
         int maxY = SnakeGame.yPixelMaxDimension;
-        int squareSize = SnakeGame.squareSize;
+        int squareSize = (int) Math.round(SnakeGame.squareSize);
 
 		String FloorTextureURL = "Resources/Floor.png";
 		ImageIcon i1 = new ImageIcon(FloorTextureURL);
 
 		g.clearRect(0, 0, maxX, maxY);
 
+        // a linked list to keep track of all the floor tiles.
         LinkedList<Square> floor = new LinkedList<>();
 
+        // makes a floor tile for every square on the grid.
         for (int x = 0; x <= maxX; x+= squareSize){
 			for (int y = 0; y <= maxY; y+= squareSize){
 				floor.add(new Square(x,y));
 			}
 		}
+
+        // textures the floor tiles, or makes them white if for some reason the program cannot find the floor texture.
         for (Square s : floor){
-//        	g.setColor(Color.LIGHT_GRAY);
 			g.drawImage(i1.getImage(), s.x , s.y , squareSize, squareSize, Color.white,null);
 		}
-
-        g.setColor(Color.RED);
 
         //Draw grid - horizontal lines
         for (int y = 0; y <= maxY; y += squareSize) {
@@ -179,22 +193,43 @@ public class DrawSnakeGamePanel extends JPanel {
 
     private void displayKibble(Graphics g) {
 
-        //Draw the kibble in green
-        g.setColor(Color.GREEN);
+        int size = (int) Math.round(SnakeGame.squareSize);
 
+        int x = kibble.getKibbleX() * size;
+        int y = kibble.getKibbleY() * size;
 
-        int x = kibble.getKibbleX() * SnakeGame.squareSize;
-        int y = kibble.getKibbleY() * SnakeGame.squareSize;
+        String KibTextureURL = "Resources/Blank.png";
 
-        g.fillRect(x + 1, y + 1, SnakeGame.squareSize - 2, SnakeGame.squareSize - 2);
+        // figures out the kibble type and assigns it a color or a texture based on that.
+        if (kibble.getKibbleType() == Kibble.GREEN){
+            g.setColor(Color.GREEN);
+        } else if (kibble.getKibbleType() == Kibble.PINK){
+            g.setColor(Color.PINK);
+        } else if (kibble.getKibbleType() == Kibble.BLUE){
+            g.setColor(Color.BLUE);
+        }  else if (kibble.getKibbleType() == Kibble.NYOOMTIME){
+            KibTextureURL = "Resources/Nyoom.png";
+        }else if (kibble.getKibbleType() == Kibble.NEGATIVESCORE){
+            KibTextureURL = "Resources/BadActually.png";
+        }else if (kibble.getKibbleType() == Kibble.WALLMAGEDDON){
+            KibTextureURL = "Resources/WallSwap.png";
+        }else if (kibble.getKibbleType() == Kibble.SHRINKSQARES){
+            KibTextureURL = "Resources/ShrinkGame.png";
+        }else {
+            g.setColor(Color.GRAY);
+        }
 
+        g.fillRect(x, y, size, size);
+        ImageIcon i1 = new ImageIcon(KibTextureURL);
+        g.drawImage(i1.getImage(),x, y, size, size,null);
     }
 
+    // paints the walls.
     private void displayWall(Graphics g, Wall theWall) {
         String WallTextureURL = "Resources/Wall.png";
         ImageIcon i1 = new ImageIcon(WallTextureURL);
 
-        int size = SnakeGame.squareSize;
+        int size = (int) Math.round(SnakeGame.squareSize);
 
         int wallX = theWall.getWallX() * size;
         int wallY = theWall.getWallY() * size;
@@ -203,39 +238,65 @@ public class DrawSnakeGamePanel extends JPanel {
     }
 
     private void displaySnake(Graphics g) {
-        String SkinTextureURL = "Resources/Skin.png";
-        ImageIcon i1 = new ImageIcon(SkinTextureURL);
-
-        int size = SnakeGame.squareSize;
+        int size = (int) Math.round(SnakeGame.squareSize);
 
         LinkedList<Square> coordinates = snake.getSnakeSquares();
 
         //Draw's head texture
         drawSnakeHead(g,coordinates);
 
-        //Draw rest of snake
+        String SkinTextureURL = "Resources/Skin.png";
+
+        // figures out what color the snake should be based on the last time a color kibble was eaten.
+        if((kibble.getLastColorEaten() == Kibble.NORMAL)){
+            SkinTextureURL = "Resources/Skin.png";
+        }else if((kibble.getLastColorEaten() == Kibble.GREEN)){
+            SkinTextureURL = "Resources/SkinGreen.png";
+        }else if((kibble.getLastColorEaten() == Kibble.PINK)){
+            SkinTextureURL = "Resources/SkinPink.png";
+        }else if((kibble.getLastColorEaten() == Kibble.BLUE)){
+            SkinTextureURL = "Resources/SkinBlue.png";
+        }
+
+        ImageIcon i1 = new ImageIcon(SkinTextureURL);
+
+        // paints every square in the snake linked list with the snake texture of choice.
         for (Square s : coordinates) {
             g.drawImage(i1.getImage(),s.x * size, s.y * size, size, size,null);
         }
+
     }
 
     private void displayInstructions(Graphics g) {
-        g.drawString("Press any key to begin!", 150, 200);
+        g.drawString("Press the enter key to begin!", 150, 200);
         g.drawString("Press o for options!", 150, 250);
-        g.drawString("Press q of esc to quit the game!", 150, 300);
+        g.drawString("Press q or esc to quit the game!", 150, 300);
     }
 
     // draws snakes head facing whatever direction the current heading is.
     private void drawSnakeHead(Graphics g, LinkedList<Square> coordinates){
         String HeadTextureURL = "Resources/Head.png";
+
+        // figures out which color the head should be based on the last color kibble eaten.
+        if(kibble.getLastColorEaten() == Kibble.GREEN){
+            HeadTextureURL = "Resources/HeadGreen.png";
+        }else if(kibble.getLastColorEaten() == Kibble.PINK){
+            HeadTextureURL = "Resources/HeadPink.png";
+        }else if(kibble.getLastColorEaten() == Kibble.BLUE){
+            HeadTextureURL = "Resources/HeadBlue.png";
+        }
+
         ImageIcon i2 = new ImageIcon(HeadTextureURL);
-        int size = SnakeGame.squareSize;
+        int size = (int) Math.round(SnakeGame.squareSize);
         Graphics2D g2 = (Graphics2D)g;
+
+        // gets the games default transformation so it can be returned to later.
         AffineTransform old = g2.getTransform();
         AffineTransform trans = new AffineTransform();
 
         Square head = coordinates.pop();
 
+        // figures out how much it needs to rotate the panel to get the snake head to face the direction of your current heading.
         if(snake.getCurrentHeading() == snake.DIRECTION_LEFT){
             trans.rotate( Math.toRadians(0), head.x * size, head.y* size );
             g2.transform( trans );
@@ -256,14 +317,23 @@ public class DrawSnakeGamePanel extends JPanel {
         g2.setTransform(old);
 	}
 
-	private void listenTime(){
+	// sets up the action listener for the button.
+	private void listenTime(Graphics g){
         SubmitScoreButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String name = playerNameTextField.getText();
                 HighScoreDatabase.addScore(name, score.getScore());
+                submittedScore = true;
+
+                // Changes the game stage to and from game over so the game over display is repainted.
+                // Necessary because there isn't (or shouldn't be) an active timer to repaint the display and show the submitted score text.
+                // and there cannot be an active timer redrawing the panel because if there is it will refresh the panel as you are trying to type your name and make the text field empty again.
+                SnakeGame.setGameStage(SnakeGame.CANCEL_TIMER);
+                SnakeGame.setGameStage(SnakeGame.GAME_OVER);
             }
         });
+
     }
 }
 

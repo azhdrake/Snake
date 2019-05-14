@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/clara/SnakeGame.java" line="35" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/clara/SnakeGame.java" line="34" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d960ab6a-57ba-4965-840d-c1a783f88d0a" name="Default" comment="Made database Actually work!">
+    <list default="true" id="d960ab6a-57ba-4965-840d-c1a783f88d0a" name="Default" comment="Ported everything to the master">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/highScore.db" beforeDir="false" afterPath="$PROJECT_DIR$/highScore.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Skin.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/highScore.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/clara/DrawSnakeGamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/clara/DrawSnakeGamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/clara/GameClock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/clara/GameClock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/clara/GameComponentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/clara/GameComponentManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/clara/GameControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/clara/GameControls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/clara/HighScoreDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/clara/HighScoreDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/clara/Kibble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/clara/Kibble.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/clara/Snake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/clara/Snake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/clara/SnakeGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/clara/SnakeGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/clara/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/clara/Wall.java" afterDir="false" />
     </list>
     <ignored path="SNAKE-ORIGINAL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,11 +52,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/GameClock.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/DrawSnakeGamePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="39" column="46" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
+            <state relative-caret-position="374">
+              <caret line="330" column="193" selection-start-line="330" selection-start-column="193" selection-end-line="330" selection-end-column="193" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,8 +67,71 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/GameComponentManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1084">
-              <caret line="69" column="17" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
+            <state>
+              <caret line="65" column="80" selection-start-line="65" selection-start-column="80" selection-end-line="65" selection-end-column="80" />
+              <folding>
+                <element signature="e#3270#3271#0" expanded="true" />
+                <element signature="e#3306#3307#0" expanded="true" />
+                <element signature="e#3347#3348#0" expanded="true" />
+                <element signature="e#3381#3382#0" expanded="true" />
+                <element signature="e#3422#3423#0" expanded="true" />
+                <element signature="e#3456#3457#0" expanded="true" />
+                <element signature="e#3543#3544#0" expanded="true" />
+                <element signature="e#3571#3572#0" expanded="true" />
+                <element signature="e#3604#3605#0" expanded="true" />
+                <element signature="e#3633#3634#0" expanded="true" />
+                <element signature="e#3664#3665#0" expanded="true" />
+                <element signature="e#3692#3693#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/GameControls.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-510">
+              <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/Wall.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+              <folding>
+                <element signature="e#212#213#0" expanded="true" />
+                <element signature="e#238#239#0" expanded="true" />
+                <element signature="e#602#603#0" expanded="true" />
+                <element signature="e#649#650#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/Snake.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2491">
+              <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+              <folding>
+                <element signature="e#1043#1044#0" expanded="true" />
+                <element signature="e#1071#1072#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/Kibble.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="99" column="54" selection-start-line="99" selection-start-column="54" selection-end-line="99" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -64,11 +139,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/SnakeGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="634">
-              <caret line="162" column="51" selection-start-line="162" selection-start-column="51" selection-end-line="162" selection-end-column="51" />
+            <state relative-caret-position="425">
+              <caret line="198" column="101" selection-start-line="198" selection-start-column="101" selection-end-line="198" selection-end-column="101" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/GameClock.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-221">
+              <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/HighScoreDatabase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="382">
+              <caret line="88" column="51" selection-start-line="88" selection-start-column="51" selection-end-line="88" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -84,27 +177,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>GREEN</find>
-      <find>paintComponent</find>
-      <find>green</find>
-      <find>clock</find>
       <find>fillRect</find>
       <find>displaysnak</find>
       <find>getKibble</find>
       <find>addKibble</find>
-      <find>kibble</find>
       <find>current</find>
       <find>jfr</find>
-      <find>xSquares</find>
       <find>xPixelMaxDimension</find>
       <find>isThisInSnake</find>
       <find>clockInterval</find>
-      <find>warp</find>
       <find>database</find>
       <find>getHighScore</find>
       <find>Cannot retrieve score</find>
       <find>1</find>
       <find>print</find>
+      <find>Kibble</find>
+      <find>score</find>
+      <find>RED</find>
+      <find>lingeringTimer</find>
+      <find>xSquares</find>
+      <find>move</find>
+      <find>moveKibble</find>
+      <find>remo</find>
+      <find>repaint</find>
+      <find>optionsMenuTimer</find>
+      <find>lingering</find>
+      <find>kibble</find>
+      <find>warp</find>
+      <find>firstRound</find>
+      <find>war</find>
+      <find>newGame</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -135,10 +237,15 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/41a4b630-6c01-437e-80de-acb2926ab31c/console.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/19cc51cd-236b-4f6c-98e3-38cc6be2140a/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/com/clara/GameComponentManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/clara/GameControls.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/clara/DrawSnakeGamePanel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/clara/HighScoreDatabase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/clara/Wall.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/clara/Snake.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/clara/Kibble.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/clara/SnakeGame.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/clara/GameClock.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/clara/HighScoreDatabase.java" />
       </list>
     </option>
   </component>
@@ -153,6 +260,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -190,8 +299,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -206,7 +313,7 @@
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557448051582" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557857852235" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -497,6 +604,9 @@
       <workItem from="1557324163297" duration="24000" />
       <workItem from="1557324251975" duration="4217000" />
       <workItem from="1557605263182" duration="829000" />
+      <workItem from="1557709552301" duration="3211000" />
+      <workItem from="1557735306127" duration="18834000" />
+      <workItem from="1557844977096" duration="8089000" />
     </task>
     <task id="LOCAL-00001" summary="GameComponentManager class to manage Snake, Kibble, other game play objects">
       <created>1458757336662</created>
@@ -579,13 +689,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112299000" />
+    <option name="totallyTimeSpent" value="148318000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49919224" weight="0.14072494" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49919224" visible="true" weight="0.12579957" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Palette&#9;" order="3" />
@@ -594,7 +704,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32827735" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.25568798" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.25460455" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -605,7 +715,7 @@
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.31746033" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5010661" side_tool="true" weight="0.25568798" />
       <window_info anchor="bottom" id="Application Servers" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32698768" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.3261105" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="15" />
       <window_info anchor="bottom" id="Database Console" order="16" weight="0.32922733" />
@@ -621,43 +731,6 @@
       <window_info anchor="right" id="Capture Analysis" order="9" />
       <window_info anchor="right" id="Theme Preview" order="10" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49919224" visible="true" weight="0.14072494" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info id="Palette&#9;" order="3" />
-      <window_info id="Favorites" order="4" sideWeight="0.50080776" side_tool="true" weight="0.14072494" />
-      <window_info id="Image Layers" order="5" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32827735" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.25568798" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.4171181" />
-      <window_info anchor="bottom" id="IDEtalk Messages" order="8" />
-      <window_info anchor="bottom" id="Changes" order="9" weight="0.10052219" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.31746033" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5010661" side_tool="true" visible="true" weight="0.25568798" />
-      <window_info anchor="bottom" id="Application Servers" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32698768" />
-      <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="15" />
-      <window_info anchor="bottom" id="Database Console" order="16" weight="0.32922733" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Designer" order="4" />
-      <window_info anchor="right" id="Database" order="5" weight="0.3294621" />
-      <window_info anchor="right" id="IDEtalk" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" />
-      <window_info anchor="right" id="Maven" order="8" />
-      <window_info anchor="right" id="Capture Analysis" order="9" />
-      <window_info anchor="right" id="Theme Preview" order="10" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -796,9 +869,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/clara/test.java" />
-    <entry file="file://$PROJECT_DIR$/Resources/Skin.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Skin.jpg" />
     <entry file="file://$PROJECT_DIR$/Resources/icon.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -820,13 +891,6 @@
     <entry file="file://$PROJECT_DIR$/Snake2.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/Wall.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/clara/pom.xml" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -837,44 +901,6 @@
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/41a4b630-6c01-437e-80de-acb2926ab31c/console.sql" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/19cc51cd-236b-4f6c-98e3-38cc6be2140a/console.sql" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/Snake.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="98" column="70" selection-start-line="98" selection-start-column="70" selection-end-line="98" selection-end-column="70" />
-          <folding>
-            <element signature="e#1043#1044#0" expanded="true" />
-            <element signature="e#1071#1072#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/DrawSnakeGamePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="244" column="15" selection-start-line="244" selection-start-column="13" selection-end-line="244" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/Kibble.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-          <folding>
-            <element signature="e#686#687#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/HighScoreDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1717">
-          <caret line="101" column="53" selection-start-line="101" selection-start-column="53" selection-end-line="101" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/Score.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -882,19 +908,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/GameControls.java">
+    <entry file="file://$PROJECT_DIR$/Resources/Skin.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/util/Random.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="69" column="37" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
+        <state relative-caret-position="220">
+          <caret line="104" selection-start-line="104" selection-end-line="104" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#3571#3572#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/SnakeControls.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
+        <state relative-caret-position="187">
           <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -903,10 +932,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/SnakeGame.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/DrawSnakeGamePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="162" column="51" selection-start-line="162" selection-start-column="51" selection-end-line="162" selection-end-column="51" />
+        <state relative-caret-position="374">
+          <caret line="330" column="193" selection-start-line="330" selection-start-column="193" selection-end-line="330" selection-end-column="193" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -915,15 +944,87 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/GameComponentManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1084">
-          <caret line="69" column="17" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
+        <state>
+          <caret line="65" column="80" selection-start-line="65" selection-start-column="80" selection-end-line="65" selection-end-column="80" />
+          <folding>
+            <element signature="e#3270#3271#0" expanded="true" />
+            <element signature="e#3306#3307#0" expanded="true" />
+            <element signature="e#3347#3348#0" expanded="true" />
+            <element signature="e#3381#3382#0" expanded="true" />
+            <element signature="e#3422#3423#0" expanded="true" />
+            <element signature="e#3456#3457#0" expanded="true" />
+            <element signature="e#3543#3544#0" expanded="true" />
+            <element signature="e#3571#3572#0" expanded="true" />
+            <element signature="e#3604#3605#0" expanded="true" />
+            <element signature="e#3633#3634#0" expanded="true" />
+            <element signature="e#3664#3665#0" expanded="true" />
+            <element signature="e#3692#3693#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/GameControls.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-510">
+          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/Wall.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#212#213#0" expanded="true" />
+            <element signature="e#238#239#0" expanded="true" />
+            <element signature="e#602#603#0" expanded="true" />
+            <element signature="e#649#650#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/Snake.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2491">
+          <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+          <folding>
+            <element signature="e#1043#1044#0" expanded="true" />
+            <element signature="e#1071#1072#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/Kibble.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="99" column="54" selection-start-line="99" selection-start-column="54" selection-end-line="99" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/SnakeGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="198" column="101" selection-start-line="198" selection-start-column="101" selection-end-line="198" selection-end-column="101" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/GameClock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="39" column="46" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
+        <state relative-caret-position="-221">
+          <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/clara/HighScoreDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="88" column="51" selection-start-line="88" selection-start-column="51" selection-end-line="88" selection-end-column="51" />
         </state>
       </provider>
     </entry>

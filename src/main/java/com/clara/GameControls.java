@@ -10,14 +10,7 @@ public class GameControls implements KeyListener{
 		//keyPressed events are for catching events like function keys, enter, arrow keys
 
 		//Is game running? No? tell the game to draw grid, start, etc.
-		if (ev.getKeyChar() != 'o' && SnakeGame.getGameStage() == SnakeGame.BEFORE_GAME){
-			SnakeGame.newGame();
-			return;
-		}
-
-		// This is the same at the above if-statement, but it's possible you might want to
-		// do something different depending on where you are in the game.
-		if (ev.getKeyChar() != 'o' && SnakeGame.getGameStage() == SnakeGame.GAME_OVER){
+		if (ev.getKeyChar() == KeyEvent.VK_ENTER && (SnakeGame.getGameStage() == SnakeGame.BEFORE_GAME || SnakeGame.getGameStage() == SnakeGame.GAME_OVER)){
 			SnakeGame.newGame();
 			return;
 		}

@@ -31,9 +31,8 @@ public class Snake {
 	}
 
 	protected void createStartSnake(){
-
 		//snake starts as 3 horizontal squares in the center of the screen, moving left.
-		//Figure out where center is,
+		//Figure out where center is.
 		int screenXCenter = maxX/2;
 		int screenYCenter = maxY/2;
 
@@ -114,19 +113,19 @@ public class Snake {
 		Square newHead = new Square(headX + currentHeading[0], headY + currentHeading[1]);
 
 		//Does this make snake hit the wall without warp walls? Game over.
-		if ((headX >= maxX || headX < 0 || headY >= maxY || headY < 0 ) && !SnakeGame.warpWalls) {
+		if ((headX >= SnakeGame.xSquares || headX < 0 || headY >= SnakeGame.ySquares || headY < 0 ) && !SnakeGame.warpWalls) {
 			GameComponentManager.lingeringTimer = true;
 			SnakeGame.setGameStage(SnakeGame.GAME_OVER);
 			return;
 			//Are warp walls enabled? It's time to play: WARP. THAT. SNAKE!
-		} else if (headX >= maxX - 1 && SnakeGame.warpWalls && currentHeading == DIRECTION_RIGHT){
+		} else if (headX >= SnakeGame.xSquares - 1 && SnakeGame.warpWalls && currentHeading == DIRECTION_RIGHT){
 			newHead.x = 0;
-		}else if (headY >= maxY - 1 && SnakeGame.warpWalls && currentHeading == DIRECTION_DOWN){
+		}else if (headY >= SnakeGame.ySquares - 1 && SnakeGame.warpWalls && currentHeading == DIRECTION_DOWN){
 			newHead.y = 0;
 		}else if (headX <= 0 && SnakeGame.warpWalls && currentHeading == DIRECTION_LEFT){
-			newHead.x = maxX - 1;
+			newHead.x = SnakeGame.xSquares - 1;
 		}else if (headY <= 0 && SnakeGame.warpWalls && currentHeading == DIRECTION_UP){
-			newHead.y = maxY - 1;
+			newHead.y = SnakeGame.ySquares - 1;
 		}
 
 		//Does this make the snake eat its tail? Game over.
@@ -165,6 +164,7 @@ public class Snake {
 	/* Game controller calls this to notify snake */
 	public void youAteKibble() {
 		growThisManySquares += growthIncrement;
+	//	if(Kibble.getLastKibEaten())
 	}
 
 

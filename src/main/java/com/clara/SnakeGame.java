@@ -1,6 +1,7 @@
 package com.clara;
 
 import java.util.LinkedList;
+import java.util.Random;
 import java.util.Timer;
 
 import javax.swing.*;
@@ -15,12 +16,10 @@ public class SnakeGame {
 	public final static int xExtraPixelsToAccountForTitleBar = 16;
 	public final static int yExtraPixelsToAccountForTitleBar = 39;
 
-	public static int xSquares ;    //How many squares in the grid?
-	public static int ySquares ;
+	public static int xSquares;    //How many squares in the grid?
+	public static int ySquares;
 
-	public final static int squareSize = 50;
-
-
+	public static double squareSize = 50.0; // changed to a double because of the shrink square kibble effect, which makes the grid column and row larger.
 
 	protected static Snake snake ;
 
@@ -42,7 +41,8 @@ public class SnakeGame {
 	static final int DURING_GAME = 2;
 	static final int GAME_OVER = 3;
 	static final int GAME_WON = 4;
-	static final int OPTIONS = 5; //The numerical values of these variables are not important. The important thing is to use the constants
+	static final int OPTIONS = 5;
+	static final int CANCEL_TIMER = 6;//The numerical values of these variables are not important. The important thing is to use the constants
 	//instead of the values so you are clear what you are setting. Easy to forget what number is Game over vs. game won
 	//Using constant names instead makes it easier to keep it straight. Refer to these variables 
 	//using statements such as SnakeGame.GAME_OVER 
@@ -111,8 +111,8 @@ public class SnakeGame {
 
 	private static void initializeGame() {
 		//set up score, snake, walls, and first kibble
-		xSquares = xPixelMaxDimension / squareSize;
-		ySquares = yPixelMaxDimension / squareSize;
+		xSquares = (int) (xPixelMaxDimension / squareSize);
+		ySquares = (int) (yPixelMaxDimension / squareSize);
 
 		componentManager = new GameComponentManager();
 		snake = new Snake(xSquares, ySquares);
@@ -126,6 +126,9 @@ public class SnakeGame {
 		initializeDatabase();
 
 		componentManager.addScore(score);
+
+		kibble.setLastKibEaten(Kibble.NORMAL);
+		kibble.setLastColorEaten(Kibble.NORMAL);
 
 		gameStage = BEFORE_GAME;
 	}
@@ -141,15 +144,27 @@ public class SnakeGame {
 		}
 	}
 
+	// the troublesome timer.
 	protected static Runnable newGame() {
 		Timer timer = new Timer();
+		SnakeGame.clockInterval = 500;
 		gameStage = DURING_GAME;
 		GameClock clockTick = new GameClock(componentManager, snakePanel);
-		timer.scheduleAtFixedRate(clockTick, 0, clockInterval);
+		timer.scheduleAtFixedRate(clockTick, 500, clockInterval);
 		componentManager.newGame();
 		return null;
 	}
 
+	// the troublesome timer: I have no one to blame but myself edition
+	protected static void speedUpTimer(){
+		Timer fastTimer = new Timer();
+		gameStage = DURING_GAME;
+		GameClock fastTick = new GameClock(componentManager, snakePanel);
+		fastTimer.scheduleAtFixedRate(fastTick, 500, clockInterval);
+		GameComponentManager.lingeringTimer = true;
+	}
+
+	// the options menu timer, slightly less troublesome then the other two timers but you still shouldn't turn you back to it.
 	protected static void optionsMenuTimer(){
 		Timer optionsTimer = new Timer();
 		gameStage = OPTIONS;
@@ -157,11 +172,33 @@ public class SnakeGame {
 		optionsTimer.scheduleAtFixedRate(clockTick, 0, clockInterval);
 	}
 
+	// sets up the high score database
 	protected static void initializeDatabase(){
 		HighScoreDatabase.createTables();
 		if(!HighScoreDatabase.checkForData()){
-			HighScoreDatabase.InsertStartingData();
+			HighScoreDatabase.insertStartingData();
 		}
+	}
+
+	// recalculates the square size based on modified squaresize.
+	public static void recalculateSquares(){
+		xSquares = (int) (xPixelMaxDimension / squareSize);
+		ySquares = (int) (yPixelMaxDimension / squareSize);
+	}
+
+	// the wallmageddon effect. called upon by the resolvekibble method. moves all walls, makes sure they don't spawn in the snake and the new kibble stays out of them.
+	// the iskibbleoutofwall method is where the resolvekibble method is located, so care has to be taken to avoid a reclusive hole.
+	protected static void wallmageddon() {
+		for(Wall wall : wallList){
+			wall.moveWall();
+			componentManager.isWallOutOfSnake();
+			componentManager.isKibbleOutOfWall();
+		}
+	}
+
+	// the bad kibble effect. score set to -2 so that the +1 earned by eating a kibble is canceled out.
+	protected static void negativeScore(){
+		score.score -= 2;
 	}
 
 	public static int getGameStage() {

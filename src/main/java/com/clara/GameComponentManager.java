@@ -3,7 +3,9 @@ package com.clara;
 /**
  * Created by Clara. Manages game components such as the Snake, Kibble... and their interactions.
  */
+
 public class GameComponentManager {
+
 
     private Kibble kibble;
     private Snake snake;
@@ -31,9 +33,11 @@ public class GameComponentManager {
             Square kibbleLoc;
             do {
                 kibbleLoc = kibble.moveKibble();
+                if(snake.isThisInSnake(kibble.getSquare())){
+                    kibble.moveKibble();
+                }
                 isKibbleOutOfWall();
             } while (snake.isThisInSnake(kibbleLoc));
-
             score.increaseScore();
 		}
 
@@ -48,28 +52,52 @@ public class GameComponentManager {
     }
 
     public void newGame() {
+        SnakeGame.squareSize = 50;
+        SnakeGame.recalculateSquares();
         score.resetScore();
         snake.createStartSnake();
         kibble.moveKibble();
-        isKibbleOutOfWall();
         for (Wall wall : SnakeGame.wallList) {
             wall.moveWall();
         }
+        isWallOutOfSnake();
+        isKibbleOutOfWall();
+
+        // this is all to make sure you don't start with a kibble effect active.
+        kibble.setLastKibEaten(Kibble.NORMAL);
+        kibble.setLastColorEaten(Kibble.NORMAL);
+        kibble.setFirstRound(false);
     }
 
     // a method to check if the kibble is in a wall and moves it if so.
-    private void isKibbleOutOfWall(){
+    protected void isKibbleOutOfWall(){
         int i = 0;
         while(i <= SnakeGame.gameDifficulty){
             for (Wall wall : SnakeGame.wallList) {
-                if (kibble.isThisInKibble(wall.getSquare())) {
+                if (kibble.isThisInKibble(wall.getSquare()) || snake.isThisInSnake(kibble.getSquare())) {
                     kibble.moveKibble();
                     i = 0;
-                } else {
+                }else {
                     i += 1;
                 }
             }
         }
+    }
+
+    // a method to check if the wall is spawning in a snake and move it if it is.
+    protected void isWallOutOfSnake(){
+        int i = 0;
+        while(i <= SnakeGame.gameDifficulty){
+            for (Wall wall : SnakeGame.wallList) {
+                if (snake.isThisInSnake(wall.getSquare())) {
+                    wall.moveWall();
+                    i = 0;
+                }else {
+                    i += 1;
+                }
+            }
+        }
+
     }
 
     public void addKibble(Kibble kibble) {
