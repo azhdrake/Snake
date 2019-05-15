@@ -52,14 +52,14 @@ public class GameControls implements KeyListener{
 
 		// sets up the difficulty select feature.
 		if(keyPressed == d && SnakeGame.getGameStage() == SnakeGame.OPTIONS){
-			if (SnakeGame.gameDifficulty == SnakeGame.EASY){
-				SnakeGame.gameDifficulty = SnakeGame.MID;
+			if (SnakeGame.numberOfWalls == SnakeGame.EASY){
+				SnakeGame.numberOfWalls = SnakeGame.MID;
 				SnakeGame.addWalls();
-			} else if (SnakeGame.gameDifficulty == SnakeGame.MID){
-				SnakeGame.gameDifficulty = SnakeGame.HARD;
+			} else if (SnakeGame.numberOfWalls == SnakeGame.MID){
+				SnakeGame.numberOfWalls = SnakeGame.HARD;
 				SnakeGame.addWalls();
 			} else{
-				SnakeGame.gameDifficulty = SnakeGame.EASY;
+				SnakeGame.numberOfWalls = SnakeGame.EASY;
 				SnakeGame.addWalls();
 			}
 		}

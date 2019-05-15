@@ -25,20 +25,25 @@ public class GameComponentManager {
         snake.moveSnake();
 
         //Ask the snake if it is on top of the kibble
+
         if (snake.isThisInSnake(kibble.getSquare())) {
 			//If so, tell the snake that it ate the kibble
 			snake.youAteKibble();
-            //And, update the kibble - move it to a new square. Got to check to make sure
-            //that the new square is not inside the snake or a wall.
+
             Square kibbleLoc;
+
+            kibble.setLastKibEaten(kibble.getKibbleType());
+            kibble.resolveLastKibble();
             do {
                 kibbleLoc = kibble.moveKibble();
                 if(snake.isThisInSnake(kibble.getSquare())){
                     kibble.moveKibble();
                 }
                 isKibbleOutOfWall();
+
             } while (snake.isThisInSnake(kibbleLoc));
             score.increaseScore();
+
 		}
 
         // checks to see if the snake is any wall and then ends the game if so.
@@ -72,7 +77,9 @@ public class GameComponentManager {
     // a method to check if the kibble is in a wall and moves it if so.
     protected void isKibbleOutOfWall(){
         int i = 0;
-        while(i <= SnakeGame.gameDifficulty){
+        while(i <= SnakeGame.numberOfWalls){
+            // checks if kibble is out of each wall individually, and moves it if it is, and resets the counter in case it moved the kibble into a wall it already checked.
+            // when counter reaches number of walls that means the kibble has been checked against every wall and is not in any of them.
             for (Wall wall : SnakeGame.wallList) {
                 if (kibble.isThisInKibble(wall.getSquare()) || snake.isThisInSnake(kibble.getSquare())) {
                     kibble.moveKibble();
@@ -85,9 +92,10 @@ public class GameComponentManager {
     }
 
     // a method to check if the wall is spawning in a snake and move it if it is.
+    // there is nothing preventing walls from spawning inside other walls. This doesn't break the game and was considered a low priority implementation.
     protected void isWallOutOfSnake(){
         int i = 0;
-        while(i <= SnakeGame.gameDifficulty){
+        while(i <= SnakeGame.numberOfWalls){
             for (Wall wall : SnakeGame.wallList) {
                 if (snake.isThisInSnake(wall.getSquare())) {
                     wall.moveWall();

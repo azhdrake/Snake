@@ -186,7 +186,7 @@ public class Snake {
 
 		//Number of squares on screen = x squares * y squares
 
-		if (snakeSquares.size() == (maxX * maxY) - SnakeGame.gameDifficulty) {
+		if (snakeSquares.size() == (maxX * maxY) - SnakeGame.numberOfWalls) {
 			return true;
 		}
 		return false;

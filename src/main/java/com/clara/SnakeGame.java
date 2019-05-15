@@ -35,7 +35,7 @@ public class SnakeGame {
 	static final int MID = 8;
 	static final int HARD = 15;
 
-	static int gameDifficulty = MID;
+	static int numberOfWalls = MID;
 
 	static final int BEFORE_GAME = 1;
 	static final int DURING_GAME = 2;
@@ -138,7 +138,7 @@ public class SnakeGame {
 		if (!wallList.isEmpty()) {
 			wallList.clear();
 		}
-		for (int x = 1; x <= gameDifficulty; x++){
+		for (int x = 1; x <= numberOfWalls; x++){
 			Wall newWall = new Wall();
 			wallList.add(newWall);
 		}

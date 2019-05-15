@@ -44,23 +44,20 @@ public class Kibble {
 		if (firstRound){
 			lastKibEaten = NORMAL;
 			lastColorEaten = NORMAL;
-		} // checks if the wallmageddon effect is currently being resolved, and if so doesn't try to resolve the kibble effect as it is already doing that.
-		else if (wallmageddonResolved){
-			changeKibbleType();
 		}else{
-			resolveLastKibble();
 			changeKibbleType();
-		} // moves the kibble.
+		}
+		// moves the kibble.
 		Random rng = new Random();
 		kibbleX = rng.nextInt(SnakeGame.xSquares);
 		kibbleY = rng.nextInt(SnakeGame.ySquares);
+
 		return new Square(kibbleX, kibbleY);
 	}
 
 	// figures out the type of kibble just eaten and resolves it.
 	protected void resolveLastKibble(){
-		int kibType = this.getKibbleType();
-		this.setLastKibEaten(kibType);
+
 		if (lastKibEaten == PINK || lastKibEaten == BLUE || lastKibEaten == GREEN || lastKibEaten == NORMAL){
 			this.setLastColorEaten(lastKibEaten);
 		} else if (lastKibEaten == Kibble.SHRINKSQARES){

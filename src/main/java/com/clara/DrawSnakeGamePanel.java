@@ -90,9 +90,9 @@ public class DrawSnakeGamePanel extends JPanel {
             g.drawString("Warpwalls: OFF", 150, 200);
         }
 
-        if (SnakeGame.gameDifficulty == SnakeGame.EASY){
+        if (SnakeGame.numberOfWalls == SnakeGame.EASY){
             g.drawString("Difficulty: Easy",150, 225);
-        } else if (SnakeGame.gameDifficulty == SnakeGame.MID){
+        } else if (SnakeGame.numberOfWalls == SnakeGame.MID){
             g.drawString("Difficulty: Medium",150, 225);
         } else{
             g.drawString("Difficulty: Hard",150, 225);
@@ -326,10 +326,11 @@ public class DrawSnakeGamePanel extends JPanel {
                 HighScoreDatabase.addScore(name, score.getScore());
                 submittedScore = true;
 
-                // Changes the game stage to and from game over so the game over display is repainted.
-                // Necessary because there isn't (or shouldn't be) an active timer to repaint the display and show the submitted score text.
-                // and there cannot be an active timer redrawing the panel because if there is it will refresh the panel as you are trying to type your name and make the text field empty again.
-                SnakeGame.setGameStage(SnakeGame.CANCEL_TIMER);
+                // Starts a timer so the stage can be repainted. It's the options menu timer because I'm to lazy to write a new timer specifically for this task and hey, it works.
+                // the options menu timer changes the gamestage to options menu, for some reason, so we need to change it back immediately so the user doesn't get confused.
+                // The newly painted game over display will have SCORE SUBMITTED written on it.
+                GameComponentManager.lingeringTimer = true;
+                SnakeGame.optionsMenuTimer();
                 SnakeGame.setGameStage(SnakeGame.GAME_OVER);
             }
         });
